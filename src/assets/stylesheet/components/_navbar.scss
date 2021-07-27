@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fuggles&display=swap');
 
-.navbar{
-  color: #fff;
-}
 .collapse{
   justify-content: space-between;
 }
@@ -15,8 +12,9 @@
   margin-bottom: 0;
   a{
     font-family: 'Fuggles', cursive;
+    color: #fff;
     &:hover{
-      color: rgb(141, 0, 0);
+      color: rgba(105, 1, 1, 0.8);
     }
   }
 }

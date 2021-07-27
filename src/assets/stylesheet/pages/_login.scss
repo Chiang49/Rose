@@ -1,0 +1,39 @@
+.mx-80{
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.falseNav{
+    height: 108px;
+}
+.loginImg{
+    padding-bottom:75%;
+    height: 0;
+    position: relative;
+    @media (min-width: 768px) {
+        padding-bottom:100%;
+    }
+    .imgFrame{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top:0;
+        left:0;
+    }
+}
+
+.loginBlock{
+    height: 100%; 
+    padding: 40px 0;
+    border: 10px double #aaa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .form{
+        width: 80%;
+        text-align: left;
+    }
+    .btn{
+        width: 100%;
+    }
+}

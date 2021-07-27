@@ -1,0 +1,17 @@
+.activity{
+    height: 300px;
+    background: url('https://github.com/Chiang49/8week_use_image/blob/main/%E6%83%85%E4%BA%BA%E7%AF%80.jpg?raw=true');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    &-text{
+      font-size: 48px;
+      color: #fff;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      height: 400px;
+    }
+  }
