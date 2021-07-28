@@ -21,7 +21,6 @@ export default {
     this.$http.post(api).then((res) => {
       // console.log(res);
       if (!res.data.success) {
-        console.log(res.data.success);
         this.$router.push('/login');
         document.cookie = 'roseToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         this.$swal.fire({
@@ -35,3 +34,7 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@import '@/assets/stylesheet/pages/Dashboard/_dashboard.scss';
+</style>

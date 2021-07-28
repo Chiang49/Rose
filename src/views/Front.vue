@@ -15,7 +15,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@import '../assets/stylesheet/pages/_front.scss';
-</style>

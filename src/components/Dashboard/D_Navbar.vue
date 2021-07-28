@@ -16,12 +16,12 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link to="" class="nav-link" aria-current="page"
+            <router-link to="products" class="nav-link" aria-current="page"
               >產品列表</router-link
             >
           </li>
           <li class="nav-item">
-            <router-link to="" class="nav-link">訂單列表</router-link>
+            <router-link to="orders" class="nav-link">訂單列表</router-link>
           </li>
           <li class="nav-item">
             <router-link to="" class="nav-link">優惠券</router-link>

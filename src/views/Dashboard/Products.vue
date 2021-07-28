@@ -13,7 +13,7 @@
         @renderProducts = "getProducts"
     ></DeleteModal>
     <h2 class="subtitle text-white border-0">商品管理</h2>
-    <div class="productTable">
+    <div class="dashboardTable">
       <div class="d-flex justify-content-between">
         <button
           type="button"
@@ -38,7 +38,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-if="products.length === 0" class="noProduct">
+          <tr v-if="products.length === 0" class="noData">
             <td colspan="6">未有產品</td>
           </tr>
           <template v-else>
@@ -141,7 +141,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@import '@/assets/stylesheet/pages/Dashboard/_products.scss';
-</style>
