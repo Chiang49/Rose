@@ -112,6 +112,8 @@ export default {
           this.pages = res.data.pagination;
         } else {
           this.$swal('資料讀取失敗，請重新登入');
+          this.$router.push('/login');
+          document.cookie = 'roseToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         }
       }).catch((err) => {
         console.log(err);

@@ -4,10 +4,20 @@
     <div class="row">
       <div class="col-md-3">
         <ul class="productNav">
-          <li><a class="productNav-item" href="">花束</a></li>
-          <li><a class="productNav-item" href="">花盒</a></li>
-          <li><a class="productNav-item" href="">擺設</a></li>
-          <li><a class="productNav-item" href="">客制</a></li>
+          <li v-for="(categoryItem, key) in productNav" :key="key">
+            <a class="productNav-item" href="#"
+               @click.prevent="filterProduct(categoryItem)"
+            >
+              {{ categoryItem }}
+            </a>
+          </li>
+          <li>
+            <a class="productNav-item" href="#"
+               @click.prevent="filterProduct('all')"
+            >
+              全部
+            </a>
+          </li>
         </ul>
       </div>
       <div class="col-md-9">
@@ -30,18 +40,23 @@ export default {
   },
   data() {
     return {
+      allProducts: [],
       products: [],
+      productNav: [],
       pagination: {},
     };
   },
   methods: {
+    // 取得所有商品
     getProductsData(page = 1) {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products?page=${page}`;
       this.$http.get(api).then((res) => {
         // console.log(res);
         if (res.data.success) {
-          this.products = res.data.products;
+          this.allProducts = res.data.products;
+          this.products = this.allProducts;
           this.pagination = res.data.pagination;
+          this.categoryNav();
         } else {
           this.$swal.fire({
             icon: 'error',
@@ -52,8 +67,32 @@ export default {
         console.log(err);
       });
     },
+    // 取得商品種類選單
+    categoryNav() {
+      const tempNav = [];
+      this.allProducts.forEach((item) => {
+        tempNav.push(item.category);
+      });
+      this.productNav = tempNav.filter(
+        (item, index) => tempNav.indexOf(item) === index,
+      );
+    },
+    // 篩選商品種類
+    filterProduct(navItem) {
+      const tempProduct = [];
+      if (navItem === 'all') {
+        this.products = this.allProducts;
+      } else {
+        this.allProducts.forEach((item) => {
+          if (item.category === navItem) {
+            tempProduct.push({ ...item });
+          }
+        });
+        this.products = tempProduct;
+      }
+    },
   },
-  mounted() {
+  created() {
     this.getProductsData();
   },
 };
