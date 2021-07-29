@@ -30,7 +30,7 @@
           >
           {{ deleteData.title }}
           </strong>
-          <strong v-else class="text-danger">{{  }} 此訂單</strong>
+          <strong v-else class="text-danger">{{ deleteData.id }} 此訂單</strong>
           (刪除後將無法恢復)。
         </div>
         <div class="modal-footer">
@@ -61,7 +61,6 @@ export default {
   props: {
     status: {
       type: String,
-      required: true,
     },
     data: {
       type: Object,
@@ -100,10 +99,10 @@ export default {
       if (this.modalStatus === 'product') {
         api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product/${id}`;
       } else if (this.modalStatus === 'order') {
-        console.log('刪除訂單 api');
+        api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/order/${id}`;
       }
       this.$http.delete(api).then((res) => {
-        // console.log(res);
+        console.log(res);
         if (res.data.success) {
           this.$swal(res.data.message);
           this.$emit('renderProducts');

@@ -1,4 +1,15 @@
 <template>
+  <OrderModal
+    ref="orderModal"
+    :order="tempOrder"
+    @renderProducts="getOrders"
+  ></OrderModal>
+  <DeleteModal
+    ref="deleteModal"
+    :status="deleteModalStatus"
+    :data="tempOrder"
+    @renderProducts="getOrders"
+  ></DeleteModal>
   <div class="container text-center mb-9">
     <h2 class="subtitle text-white border-0">訂單頁面</h2>
     <table class="dashboardTable">
@@ -18,7 +29,7 @@
         </tr>
         <template v-else>
           <tr v-for="order in orders" :key="order.id">
-            <td>{{ order.create_at }}</td>
+            <td>{{ `${timeISO(order.create_at)}` }}</td>
             <td>
               <span>{{ order.user.email }}</span>
             </td>
@@ -44,10 +55,14 @@
             </td>
             <td>
               <div class="btn-group">
-                <button class="btn btn-outline-secondary btn-sm">
+                <button class="btn btn-outline-secondary btn-sm"
+                        @click="openOrderModal(order)"
+                >
                   檢視
                 </button>
-                <button class="btn btn-outline-danger btn-sm">
+                <button class="btn btn-outline-danger btn-sm"
+                        @click="openDeleteModal('order', order)"
+                >
                   刪除
                 </button>
               </div>
@@ -60,11 +75,20 @@
 </template>
 
 <script>
+import OrderModal from '../../components/Dashboard/OrderModal.vue';
+import DeleteModal from '../../components/Dashboard/DeleteModal.vue';
+
 export default {
+  components: {
+    OrderModal,
+    DeleteModal,
+  },
   data() {
     return {
       orders: [],
+      tempOrder: {},
       pagination: {},
+      deleteModalStatus: '',
     };
   },
   methods: {
@@ -76,7 +100,6 @@ export default {
         if (res.data.success) {
           this.orders = res.data.orders;
           this.pagination = res.data.pagination;
-          console.log(this.orders, this.pagination);
         } else {
           this.$swal('資料讀取失敗，請重新登入');
           this.$router.push('/login');
@@ -85,6 +108,20 @@ export default {
       }).catch((err) => {
         console.log(err);
       });
+    },
+    // 開啟 OrderModal
+    openOrderModal(order) {
+      this.tempOrder = { ...order };
+      this.$refs.orderModal.openModal();
+    },
+    // 開啟 DeleteModal
+    openDeleteModal(status, data) {
+      this.deleteModalStatus = status;
+      this.tempOrder = { ...data };
+      this.$refs.deleteModal.openModal();
+    },
+    timeISO(time) {
+      return new Date(time * 1000).toISOString().substr(0, 10);
     },
   },
   mounted() {

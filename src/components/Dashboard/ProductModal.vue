@@ -192,7 +192,7 @@
           </button>
           <button
             type="submit"
-            class="btn btn-outline-secondary"
+            class="btn btn-secondary"
             @click="submit(product.id)"
           >
             確認
