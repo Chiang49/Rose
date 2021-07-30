@@ -147,7 +147,7 @@ export default {
   watch: {
     order() {
       this.orderDetail = this.order;
-    //   console.log(this.orderDetail);
+      console.log(this.orderDetail);
     },
   },
   methods: {
@@ -177,6 +177,10 @@ export default {
       }).catch((err) => {
         console.log(err);
       });
+    },
+    // 時間格式轉換
+    timeISO(time) {
+      return new Date(time * 1000).toISOString().substr(0, 10);
     },
   },
   mounted() {

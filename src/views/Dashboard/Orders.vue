@@ -29,7 +29,7 @@
         </tr>
         <template v-else>
           <tr v-for="order in orders" :key="order.id">
-            <td>{{ `${timeISO(order.create_at)}` }}</td>
+            <td>{{ order.create_at }}</td>
             <td>
               <span>{{ order.user.email }}</span>
             </td>
@@ -120,6 +120,7 @@ export default {
       this.tempOrder = { ...data };
       this.$refs.deleteModal.openModal();
     },
+    // 時間格式轉換
     timeISO(time) {
       return new Date(time * 1000).toISOString().substr(0, 10);
     },

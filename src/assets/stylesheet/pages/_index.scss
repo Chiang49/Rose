@@ -15,7 +15,9 @@
 }
 
 .service{
-  padding: 0 120px;
+  @media (min-width: 768px) {
+    padding: 0 40px;
+  }
 }
   
 .shopInf{

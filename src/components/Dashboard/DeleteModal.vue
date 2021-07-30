@@ -102,7 +102,7 @@ export default {
         api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/order/${id}`;
       }
       this.$http.delete(api).then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.data.success) {
           this.$swal(res.data.message);
           this.$emit('renderProducts');
