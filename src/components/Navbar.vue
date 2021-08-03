@@ -18,10 +18,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link class="nav-link" to="about">品牌</router-link>
+            <router-link class="nav-link" to="/about">品牌</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="userProducts">商品</router-link>
+            <router-link class="nav-link" to="/userProducts">商品</router-link>
           </li>
         </ul>
         <h1 class="logo-lg">
@@ -29,10 +29,10 @@
         </h1>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link class="nav-link" to="login">登入</router-link>
+            <router-link class="nav-link" to="/login">登入</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="cart">購物車</router-link>
+            <router-link class="nav-link" to="/cart">購物車</router-link>
           </li>
         </ul>
       </div>

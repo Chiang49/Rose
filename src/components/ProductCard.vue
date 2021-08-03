@@ -1,6 +1,6 @@
 <template>
-  <li class="col-md-6 col-lg-3 mb-5" v-for="productItem in productsData" :key="productItem.key">
-    <a class="productCard" href="">
+  <li class="col-md-6 col-lg-3 mb-5" v-for="productItem in productsData" :key="productItem.id">
+    <a class="productCard" href="#" @click.prevent="productDetail(productItem.id)">
       <div class="productCard-header">
         <img class="productPh" :src="productItem.imageUrl" :alt="productItem.title">
       </div>
@@ -25,6 +25,11 @@ export default {
   watch: {
     products() {
       this.productsData = this.products;
+    },
+  },
+  methods: {
+    productDetail(id) {
+      this.$router.push(`/userProduct/${id}`);
     },
   },
 };
