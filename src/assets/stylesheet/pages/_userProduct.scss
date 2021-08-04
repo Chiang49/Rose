@@ -1,0 +1,30 @@
+
+.productPage{
+  &-frame{
+    height: 0;
+    padding-bottom: 100%;
+    position: relative;
+    margin-bottom: 24px;
+  }
+  &-ph{
+    position: absolute;
+  }
+  .category{
+    margin-bottom: 16px;
+  }
+  .title{
+    margin-bottom: 32px;
+  }
+  .price{
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+  .notice{
+    color: red;
+    margin-bottom: 16px;
+  }
+  &-btn{
+    width: 100%;
+    padding: 15px;
+  }
+}

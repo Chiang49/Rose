@@ -19,7 +19,8 @@
             <p class="cartCard-title">{{ cartItem.product.title }}</p>
             <div class="input-group mb-2">
                 <input type="number" class="form-control"
-                    :value="cartItem.qty"
+                       v-model.number="cartItem.qty"
+                       @change="updataCart(cartItem.id, cartItem.qty)"
                 />
                 <span class="input-group-text">{{ cartItem.product.unit}}</span>
             </div>
@@ -61,7 +62,7 @@ export default {
   watch: {
     cart() {
       this.cartData = this.cart;
-    //   console.log(this.cartData);
+      // console.log(this.cartData);
     },
   },
   methods: {
@@ -69,13 +70,34 @@ export default {
     deleteCart(id) {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${id}`;
       this.$http.delete(api).then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.data.success) {
+          this.$emit('updataCart');
           this.$swal.fire({
             icon: 'success',
             title: res.data.message,
           });
-          this.$emit('renderCart');
+        }
+      }).catch((err) => {
+        console.log(err);
+      });
+    },
+    // 更新購物車商品數量
+    updataCart(id, qty) {
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${id}`;
+      const updata = {
+        product_id: id,
+        qty,
+      };
+      this.$http.put(api, { data: updata }).then((res) => {
+        console.log(res);
+        if (res.data.success) {
+          this.$emit('updataCart');
+        } else {
+          this.$swal.fire({
+            icon: 'error',
+            title: res.data.message,
+          });
         }
       }).catch((err) => {
         console.log(err);

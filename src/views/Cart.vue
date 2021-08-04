@@ -5,7 +5,7 @@
     <ul class="cartTable">
       <CartCard
         :cart = "cartDatas"
-        @renderCart = "getCartsData"
+        @updataCart = "getCartsData"
       ></CartCard>
     </ul>
     <div class="row cartTotal">
@@ -22,17 +22,20 @@
       </div>
       <p class="col-md-6 cartTotal-price">總金額：NT {{ cartTotal.final_total }} 元</p>
     </div>
+    <OrderFrom></OrderFrom>
   </div>
 </template>
 
 <script>
 import Header from '../components/Header.vue';
 import CartCard from '../components/CartCard.vue';
+import OrderFrom from '../components/OrderForm.vue';
 
 export default {
   components: {
     Header,
     CartCard,
+    OrderFrom,
   },
   data() {
     return {
@@ -51,7 +54,7 @@ export default {
           if (res.data.success) {
             this.cartTotal = res.data.data;
             this.cartDatas = res.data.data.carts;
-            console.log(this.cartTotal);
+            // console.log(this.cartTotal, this.cartDatas);
           }
         })
         .catch((err) => {
