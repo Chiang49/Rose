@@ -71,17 +71,20 @@
         </template>
       </tbody>
     </table>
+    <Pagination :pages="pagination"></Pagination>
   </div>
 </template>
 
 <script>
 import OrderModal from '../../components/Dashboard/OrderModal.vue';
 import DeleteModal from '../../components/Dashboard/DeleteModal.vue';
+import Pagination from '../../components/Pagination.vue';
 
 export default {
   components: {
     OrderModal,
     DeleteModal,
+    Pagination,
   },
   data() {
     return {

@@ -1,0 +1,36 @@
+
+.notFound{
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1558001768-fb8b238bccda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  &::before{
+    content: '';
+    background: rgba(0,0,0, .68);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  &-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &-title{
+    font-size: 3rem;
+    margin-bottom: 24px;
+  }
+  &-notice{
+    font-size: 2rem;
+    color: rgb(160, 0, 0);
+    margin-right: 8px;
+  }
+  .countSeconds{
+    display: flex;
+    align-items: center;
+  }
+}

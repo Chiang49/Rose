@@ -27,13 +27,9 @@
       text-align: left;
       position: absolute;
       left: 10%;
-      bottom: 47%;
+      bottom: 16%;
       z-index: 3;
       @media (min-width: 768px) { 
         display: block;
-        bottom: 60%;
-      }
-      @media (min-width: 992px) { 
-        bottom: 30%;
       }
   }

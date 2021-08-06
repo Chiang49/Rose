@@ -7,6 +7,7 @@ const routes = [
     children: [
       {
         path: '',
+        name: 'Home',
         component: () => import('../views/Index.vue'),
       },
       {
@@ -43,6 +44,10 @@ const routes = [
         component: () => import('../views/Dashboard/Orders.vue'),
       },
     ],
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    component: () => import('../views/NotFound.vue'),
   },
 ];
 

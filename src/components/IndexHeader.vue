@@ -7,15 +7,16 @@
     <swiper-slide v-for="(img, key) in headerImags" :key="key">
       <img :src="img" alt="" />
     </swiper-slide>
+    <div class="slogan">
+      <h2 class="title">SLOGAN</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Natus dolor deleniti reiciendis eius
+        ut eos ipsa tempora! Expedita dolorem similique aut! Debitis dolore quisquam quis officiis
+        esse quia eligendi ex?
+      </p>
+    </div>
   </swiper>
-  <section class="slogan">
-    <h2 class="title">SLOGAN</h2>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus dolor deleniti reiciendis eius
-      ut eos ipsa tempora! Expedita dolorem similique aut! Debitis dolore quisquam quis officiis
-      esse quia eligendi ex?
-    </p>
-  </section>
 </template>
 
 <script>

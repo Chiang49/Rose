@@ -2,7 +2,7 @@
   <Header></Header>
   <div class="container productPage">
     <div class="row">
-      <div class="col-md-7">
+      <div class="col-md-6">
         <div class="productPage-frame">
           <img
             class="productPage-ph"
@@ -11,7 +11,7 @@
           >
         </div>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-6 productPage-content">
         <p class="category">{{ productDetail.category }}</p>
         <h2 class="title">{{ productDetail.title }}</h2>
         <p class="price">NT {{ productDetail.price }}</p>
@@ -34,15 +34,18 @@
         >加入購物車</button>
       </div>
     </div>
+    <Divider></Divider>
   </div>
 </template>
 
 <script>
 import Header from '../components/Header.vue';
+import Divider from '../components/Divider.vue';
 
 export default {
   components: {
     Header,
+    Divider,
   },
   data() {
     return {

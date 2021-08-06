@@ -13,6 +13,7 @@
         <button
           type="button"
           class="btn btn-secondary me-2"
+          @click="checkout"
         >我要結帳囉</button>
         <button
           type="button"
@@ -22,20 +23,24 @@
       </div>
       <p class="col-md-6 cartTotal-price">總金額：NT {{ cartTotal.final_total }} 元</p>
     </div>
-    <OrderFrom></OrderFrom>
+    <OrderForm
+      ref="orderForm"
+      class="collapse"
+      @renderCart="getCartsData"
+    ></OrderForm>
   </div>
 </template>
 
 <script>
 import Header from '../components/Header.vue';
 import CartCard from '../components/CartCard.vue';
-import OrderFrom from '../components/OrderForm.vue';
+import OrderForm from '../components/OrderForm.vue';
 
 export default {
   components: {
     Header,
     CartCard,
-    OrderFrom,
+    OrderForm,
   },
   data() {
     return {
@@ -72,6 +77,7 @@ export default {
             title: res.data.message,
           });
           this.getCartsData();
+          this.$refs.orderForm.closeForm();
         } else {
           this.$swal.fire({
             icon: 'error',
@@ -81,6 +87,14 @@ export default {
       }).catch((err) => {
         console.log(err);
       });
+    },
+    // 結帳
+    checkout() {
+      if (this.cartDatas.length === 0) {
+        this.$swal('購物車是空的喔，快去選購吧');
+      } else {
+        this.$refs.orderForm.openForm();
+      }
     },
   },
   mounted() {
