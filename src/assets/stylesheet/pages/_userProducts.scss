@@ -9,4 +9,14 @@
 }
 .productNav-item{
     padding: 20px 16px;
+    border: 1px solid #fff;
+    border-radius: 1rem;
+    margin-bottom: 16px;
+    &:hover{
+        background: rgba(#455a64, .6);
+        transition: 0.8s;
+    }
+}
+.action{
+    background: #455a64;
 }

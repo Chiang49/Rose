@@ -35,6 +35,22 @@
       </div>
     </div>
     <Divider></Divider>
+    <div class="row noteItem">
+      <div class="col-md-6">
+        <h3>注意事項：</h3>
+        <ul>
+          <li>圖片僅供參考：實際商品會因花的種類、顏色、生長狀態、搭配略有不同。</li>
+          <li>為了增長花的壽命與最好狀態，請購買者詳讀"照顧守則"。</li>
+          <li>若想將花做成乾燥花或永生花請參考"乾燥花製作"與"永生花製作"</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <img src="https://images.unsplash.com/photo-1612335120827-84755d23437d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="">
+      </div>
+    </div>
+    <Divider></Divider>
+    <div class="productPage-otherProduct">
+    </div>
   </div>
 </template>
 

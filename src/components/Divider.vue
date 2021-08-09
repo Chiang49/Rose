@@ -1,6 +1,6 @@
 <template>
   <div class="divider">
-    <img class="divider-Img" src="../assets/2693.png" alt="Rose" />
+    <img class="divider-Img" src="../assets/logo.png" alt="Rose" />
   </div>
 </template>
 
