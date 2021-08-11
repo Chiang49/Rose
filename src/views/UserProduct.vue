@@ -50,6 +50,19 @@
     </div>
     <Divider></Divider>
     <div class="productPage-otherProduct">
+      <swiper
+        :slidesPerView="3"
+        :spaceBetween="30"
+        :slidesPerGroup="3"
+        :loop="true"
+        :loopFillGroupWithBlank="true"
+        :navigation="true"
+        class="mySwiper"
+      >
+        <swiper-slide v-for="item in likeProducts" :key="item.id">
+          <ProductCard :product="item"></ProductCard>
+        </swiper-slide>
+      </swiper>
     </div>
   </div>
 </template>
@@ -57,20 +70,43 @@
 <script>
 import Header from '../components/Header.vue';
 import Divider from '../components/Divider.vue';
+import ProductCard from '../components/ProductCard.vue';
 
 export default {
   components: {
     Header,
     Divider,
+    ProductCard,
   },
   data() {
     return {
       productId: '',
       productDetail: {},
       productQty: 1,
+      allProducts: [],
+      likeProducts: [],
     };
   },
   methods: {
+    // 取得商品細節
+    getProductDetail(id) {
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${id}`;
+      this.$http.get(api).then((res) => {
+        // console.log(res);
+        if (res.data.success) {
+          this.productDetail = res.data.product;
+          this.getAllProduct();
+        } else {
+          this.$swal.fire({
+            icon: 'error',
+            title: res.data.message,
+          });
+        }
+      }).catch((err) => {
+        console.log(err);
+      });
+    },
+    // 加到購物車
     addCart() {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       const cartData = {
@@ -94,23 +130,49 @@ export default {
         console.log(err);
       });
     },
+    // 取得所有商品
+    getAllProduct() {
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
+      this.$http.get(api).then((res) => {
+        if (res.data.success) {
+          this.allProducts = res.data.products;
+          this.filterProduct();
+        } else {
+          this.$swal.fire({
+            icon: 'error',
+            title: '相似商品讀取失敗',
+          });
+        }
+      }).catch((err) => {
+        console.log(err);
+      });
+    },
+    // 篩選相似商品
+    filterProduct() {
+      this.likeProducts = this.allProducts.filter(
+        (item) => item.category === this.productDetail.category
+                  && item.id !== this.productDetail.id,
+      );
+    },
+  },
+  // 監控 id 值的變化
+  computed: {
+    id() {
+      return this.$route.params.id;
+    },
+  },
+  // 用已變化的 id 去撈新的資料
+  watch: {
+    id(newId) {
+      this.productId = newId;
+      if (this.$route.name === 'product') {
+        this.getProductDetail(this.productId);
+      }
+    },
   },
   created() {
     this.productId = this.$route.params.id;
-    const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${this.productId}`;
-    this.$http.get(api).then((res) => {
-      // console.log(res);
-      if (res.data.success) {
-        this.productDetail = res.data.product;
-      } else {
-        this.$swal.fire({
-          icon: 'error',
-          title: res.data.message,
-        });
-      }
-    }).catch((err) => {
-      console.log(err);
-    });
+    this.getProductDetail(this.productId);
   },
 };
 </script>

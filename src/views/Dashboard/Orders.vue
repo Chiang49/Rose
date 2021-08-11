@@ -71,7 +71,10 @@
         </template>
       </tbody>
     </table>
-    <Pagination :pages="pagination"></Pagination>
+    <Pagination
+      :pages = "pagination"
+      @goPage = "getOrders"
+    ></Pagination>
   </div>
 </template>
 

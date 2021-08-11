@@ -22,7 +22,14 @@
       </div>
       <div class="col-md-9">
         <ul class="row">
-          <ProductCard :products="products"></ProductCard>
+          <li class="col-md-6 col-lg-3 mb-5"
+              v-for="productItem in products"
+              :key="productItem.id"
+          >
+            <ProductCard
+              :product="productItem"
+            ></ProductCard>
+          </li>
         </ul>
       </div>
     </div>
@@ -43,12 +50,12 @@ export default {
       allProducts: [],
       products: [],
       productNav: [],
-      actionNav: '',
+      actionNav: 'all',
       pagination: {},
     };
   },
   methods: {
-    // 取得所有商品
+    // 取得所有商品列表
     getProductsData(page = 1) {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products?page=${page}`;
       this.$http.get(api).then((res) => {
@@ -93,7 +100,6 @@ export default {
         });
         this.products = tempProduct;
       }
-      console.log(this.actionNav);
     },
   },
   created() {

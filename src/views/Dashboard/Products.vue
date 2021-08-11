@@ -76,7 +76,10 @@
       </table>
     </div>
     <div class="pagination">
-        <Pagination :pages="pages"></Pagination>
+      <Pagination
+        :pages="pages"
+        @goPage = "getProducts"
+      ></Pagination>
     </div>
   </div>
 </template>

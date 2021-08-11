@@ -12,18 +12,22 @@ const routes = [
       },
       {
         path: 'about',
+        name: 'about',
         component: () => import('../views/About.vue'),
       },
       {
         path: 'userProducts',
+        name: 'products',
         component: () => import('../views/UserProducts.vue'),
       },
       {
         path: 'userProduct/:id',
+        name: 'product',
         component: () => import('../views/UserProduct.vue'),
       },
       {
         path: 'cart',
+        name: 'cart',
         component: () => import('../views/Cart.vue'),
       },
     ],
@@ -54,6 +58,9 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
+  scrollBehavior() {
+    return { top: 0 };
+  },
 });
 
 export default router;
