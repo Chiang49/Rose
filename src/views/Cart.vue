@@ -97,6 +97,13 @@ export default {
       }
     },
   },
+  watch: {
+    cartDatas() {
+      if (this.cartDatas.length === 0) {
+        this.$refs.orderForm.closeForm();
+      }
+    },
+  },
   mounted() {
     this.getCartsData();
   },

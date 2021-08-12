@@ -1,22 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Fuggles&display=swap');
 
 .collapse{
   justify-content: space-between;
 }
 .nav-item{
   text-align: center;
-}
-
-.logo-sm, .logo-lg{
-  font-size: 4rem;
-  margin-bottom: 0;
-  a{
-    font-family: 'Fuggles', cursive;
-    color: #fff;
-    &:hover{
-      color: rgba(105, 1, 1, 0.8);
-    }
-  }
 }
 
 .logo-sm{

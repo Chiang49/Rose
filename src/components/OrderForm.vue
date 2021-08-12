@@ -39,7 +39,7 @@
               rules="min:10|required"
               :class="{ 'is-invalid': errors['手機'] }"
         ></Field>
-        <ErrorMessage name="電話" class="invalid-feedback"></ErrorMessage>
+        <ErrorMessage name="手機" class="invalid-feedback"></ErrorMessage>
       </div>
       <div class="mb-3">
         <label for="address" class="form-label">地址</label>
@@ -65,7 +65,7 @@
           :class="{ 'is-invalid': errors['付款方式'] }"
           as="select"
         >
-          <option selected disabled>選擇付款方式</option>
+          <option value="" selected disabled>選擇付款方式</option>
           <option value="ATM轉帳">ATM轉帳</option>
           <option value="親洽付款">親洽付款</option>
         </Field>

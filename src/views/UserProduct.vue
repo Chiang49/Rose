@@ -49,15 +49,12 @@
       </div>
     </div>
     <Divider></Divider>
-    <div class="productPage-otherProduct">
-      <swiper
-        :slidesPerView="3"
-        :spaceBetween="30"
-        :slidesPerGroup="3"
-        :loop="true"
-        :loopFillGroupWithBlank="true"
-        :navigation="true"
-        class="mySwiper"
+    <div class="mb-9">
+      <swiper class="mySwiper"
+              :slides-per-view="swiper.slidesPerView"
+              :space-between="swiper.spaceBetween"
+              :loop="true"
+              :navigation="true"
       >
         <swiper-slide v-for="item in likeProducts" :key="item.id">
           <ProductCard :product="item"></ProductCard>
@@ -85,6 +82,10 @@ export default {
       productQty: 1,
       allProducts: [],
       likeProducts: [],
+      swiper: {
+        slidesPerView: 0,
+        spaceBetween: 0,
+      },
     };
   },
   methods: {
@@ -154,6 +155,18 @@ export default {
                   && item.id !== this.productDetail.id,
       );
     },
+    // swiper 顯示數量隨著視窗寬度作調整
+    setSwiperSize() {
+      this.swiper.slidesPerView = 1;
+      this.swiper.spaceBetween = 10;
+      if (window.innerWidth >= 768 && window.innerWidth <= 991) {
+        this.swiper.slidesPerView = 3;
+        this.swiper.spaceBetween = 20;
+      } else if (window.innerWidth >= 992) {
+        this.swiper.slidesPerView = 4;
+        this.swiper.spaceBetween = 30;
+      }
+    },
   },
   // 監控 id 值的變化
   computed: {
@@ -173,6 +186,9 @@ export default {
   created() {
     this.productId = this.$route.params.id;
     this.getProductDetail(this.productId);
+  },
+  mounted() {
+    this.setSwiperSize();
   },
 };
 </script>
