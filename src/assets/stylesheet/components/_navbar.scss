@@ -5,6 +5,10 @@
 .nav-item{
   text-align: center;
 }
+.changeStatus{
+  background: rgba(0,0,0, .9);
+  transition: 0.6s;
+}
 
 .logo-sm{
   @media (min-width: 992px) { 

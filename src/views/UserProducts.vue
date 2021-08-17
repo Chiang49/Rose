@@ -1,5 +1,8 @@
 <template>
-  <Header></Header>
+  <Header
+        :photoUrl="headerPhoto.url"
+        :photoPosition="headerPhoto.position"
+  ></Header>
   <div class="container">
     <div class="row">
       <div class="col-md-3">
@@ -47,6 +50,10 @@ export default {
   },
   data() {
     return {
+      headerPhoto: {
+        url: 'https://images.unsplash.com/photo-1612335128392-1d77c4aab603?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80',
+        position: 'object-position: center -218px;',
+      },
       allProducts: [],
       products: [],
       productNav: [],

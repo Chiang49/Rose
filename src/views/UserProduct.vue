@@ -1,5 +1,5 @@
 <template>
-  <Header></Header>
+  <Header :photoUrl="headerPhoto.url"></Header>
   <div class="container productPage">
     <div class="row">
       <div class="col-md-6">
@@ -79,6 +79,10 @@ export default {
     return {
       productId: '',
       productDetail: {},
+      headerPhoto: {
+        url: '',
+        position: '',
+      },
       productQty: 1,
       allProducts: [],
       likeProducts: [],
@@ -96,6 +100,7 @@ export default {
         // console.log(res);
         if (res.data.success) {
           this.productDetail = res.data.product;
+          this.headerPhoto.url = this.productDetail.imageUrl;
           this.getAllProduct();
         } else {
           this.$swal.fire({
@@ -148,7 +153,7 @@ export default {
         console.log(err);
       });
     },
-    // 篩選相似商品
+    // 用所有商品篩選相似商品
     filterProduct() {
       this.likeProducts = this.allProducts.filter(
         (item) => item.category === this.productDetail.category
@@ -168,7 +173,7 @@ export default {
       }
     },
   },
-  // 監控 id 值的變化
+  // 監控路徑 id 值的變化
   computed: {
     id() {
       return this.$route.params.id;

@@ -2,7 +2,6 @@
   <swiper class="mySwiper indexSwiper"
           :autoplay="{ 'delay': 6000, 'disableOnInteraction': false }"
           :effect="'fade'"
-          :pagination="{ 'clickable': true }"
   >
     <swiper-slide v-for="(img, key) in headerImags" :key="key">
       <img :src="img" alt="" />

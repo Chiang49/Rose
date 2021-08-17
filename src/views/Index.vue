@@ -34,18 +34,8 @@
       </ul>
     </section>
   </div>
-  <!-- 店面資訊 -->
-  <section class="shopInf">
-    <div class="shop-content">
-      <h2 class="subtitle">店面資訊</h2>
-      <ul>
-        <li>地址：台北市中山區敬業三路 123 號</li>
-        <li>電話：02-2699-9999</li>
-        <li>營業時間：11:00 ~ 22:00</li>
-        <li>E-mail：rose999@xxxx.com</li>
-      </ul>
-    </div>
-  </section>
+  <!-- 訂閱資訊 -->
+  <Subscription></Subscription>
 </template>
 
 <script>
@@ -53,6 +43,7 @@ import IndexHeader from '../components/IndexHeader.vue';
 import Divider from '../components/Divider.vue';
 import Activity from '../components/Activity.vue';
 import ServiceCard from '../components/ServiceCard.vue';
+import Subscription from '../components/Subscription.vue';
 
 export default {
   components: {
@@ -60,6 +51,7 @@ export default {
     Divider,
     Activity,
     ServiceCard,
+    Subscription,
   },
 };
 </script>

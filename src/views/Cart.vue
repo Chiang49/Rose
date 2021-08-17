@@ -1,5 +1,8 @@
 <template>
-  <Header></Header>
+  <Header
+        :photoUrl="headerPhoto.url"
+        :photoPosition="headerPhoto.position"
+  ></Header>
   <div class="container text-center">
     <h2 class="subtitle">購物車</h2>
     <ul class="cartTable">
@@ -29,21 +32,28 @@
       @renderCart="getCartsData"
     ></OrderForm>
   </div>
+  <Subscription></Subscription>
 </template>
 
 <script>
 import Header from '../components/Header.vue';
 import CartCard from '../components/CartCard.vue';
 import OrderForm from '../components/OrderForm.vue';
+import Subscription from '../components/Subscription.vue';
 
 export default {
   components: {
     Header,
     CartCard,
     OrderForm,
+    Subscription,
   },
   data() {
     return {
+      headerPhoto: {
+        url: 'https://images.unsplash.com/photo-1591148782739-5bc858f02748?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1582&q=80',
+        position: 'object-position: center -550px;',
+      },
       cartTotal: {},
       cartDatas: [],
     };

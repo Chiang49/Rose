@@ -1,5 +1,7 @@
 <template>
-  <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark"
+       :class="navStatus"
+  >
     <div class="container">
       <h1 class="logo-sm">
         <router-link class="nav-link" to="/">Rose</router-link>
@@ -39,6 +41,26 @@
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      navStatus: '',
+    };
+  },
+  mounted() {
+    window.addEventListener('scroll', () => {
+      const windowY = window.scrollY;
+      if (windowY >= 500) {
+        this.navStatus = 'changeStatus';
+      } else {
+        this.navStatus = '';
+      }
+    });
+  },
+};
+</script>
 
 <style lang="scss">
 @import '../assets/stylesheet/components/_navbar.scss';
