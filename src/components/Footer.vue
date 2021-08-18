@@ -8,7 +8,7 @@
               <router-link to="/about">關於我們</router-link>
             </li>
             <li>
-              <router-link to="/problem">常見問題</router-link>
+              <router-link to="/problems">常見問題</router-link>
             </li>
           </ul>
         </div>

@@ -4,7 +4,7 @@
   >
     <div class="container">
       <h1 class="logo-sm">
-        <router-link class="nav-link" to="/">Rose</router-link>
+        <router-link to="/">Rose</router-link>
       </h1>
       <button
         class="navbar-toggler"
@@ -27,7 +27,7 @@
           </li>
         </ul>
         <h1 class="logo-lg">
-          <router-link class="nav-link" to="/">Rose</router-link>
+          <router-link to="/">Rose</router-link>
         </h1>
         <ul class="navbar-nav">
           <li class="nav-item">

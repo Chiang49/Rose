@@ -1,7 +1,6 @@
 <template>
   <Header class="mb-8"
           :photoUrl="headerPhoto.url"
-          :photoPosition="headerPhoto.position"
   ></Header>
   <div class="container">
     <div class="introduce">
@@ -44,7 +43,6 @@ export default {
     return {
       headerPhoto: {
         url: 'https://images.unsplash.com/photo-1558001768-fb8b238bccda?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80',
-        position: 'object-position: center -124px',
       },
     };
   },

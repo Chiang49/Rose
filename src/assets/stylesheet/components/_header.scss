@@ -1,5 +1,5 @@
 .otherHeader{
-    height: 450px;
+    height: 300px;
     margin-bottom: 60px;
     position: relative;
     &::before{
@@ -10,5 +10,11 @@
       right: 0;
       bottom: 0;
       left: 0;
+    }
+    @media (min-width: 768px) {
+      height: 350px;
+    }
+    @media (min-width: 992px) {
+      height: 450px;
     }
   }

@@ -1,16 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fuggles&display=swap');
 
-html, body{
-  background: #000000;
-}
 ul, ol{
   list-style: none;
   padding-left: 0;
 }
 h2, h3, p, span, a{
   font-family: 'Noto Sans TC', sans-serif;
-  color: #fff;
 }
 p{
   line-height: 1.5;
@@ -43,7 +39,6 @@ img{
   margin-bottom: 0;
   a{
     font-family: 'Fuggles', cursive;
-    color: #fff;
     &:hover{
       color: rgba(105, 1, 1, 0.8);
     }

@@ -16,7 +16,7 @@
         <h2 class="title">{{ productDetail.title }}</h2>
         <p class="price">NT {{ productDetail.price }}</p>
         <p class="notice"
-           v-if="productDetail.category === '客制'"
+           v-if="productDetail.category === '客製'"
         >此款為客制，下單後 2 個工作天會與您聯絡!</p>
         <div class="input-group mb-3">
           <input
