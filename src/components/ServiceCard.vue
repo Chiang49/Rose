@@ -1,6 +1,10 @@
 <template>
   <li class="serviceItem" v-for="(item, key) in service" :key="key">
-    <div class="serviceCard">
+    <router-link
+      class="serviceCard"
+      to="/userProducts"
+      @click="goProducts(item.title)"
+    >
       <div class="imgFrame">
         <img :src="item.imgUrl" :alt="item.title" />
       </div>
@@ -10,11 +14,13 @@
           <p>{{ item.content }}</p>
         </div>
       </div>
-    </div>
+    </router-link>
   </li>
 </template>
 
 <script>
+import bus from '../mitt';
+
 export default {
   data() {
     return {
@@ -27,7 +33,7 @@ export default {
         },
         {
           title: '花飾',
-          content: '為特別的您，設計出特別的玫瑰擺飾',
+          content: '為特別的您，設計出不平凡的玫瑰擺飾',
           imgUrl:
             'https://images.unsplash.com/photo-1599733594230-6b823276abcc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80',
         },
@@ -39,6 +45,11 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    goProducts(category) {
+      bus.emit('sendCategory', category);
+    },
   },
 };
 </script>

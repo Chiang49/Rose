@@ -39,6 +39,7 @@ img{
   margin-bottom: 0;
   a{
     font-family: 'Fuggles', cursive;
+    transition: .6s;
     &:hover{
       color: rgba(105, 1, 1, 0.8);
     }

@@ -41,6 +41,7 @@
 <script>
 import Header from '../components/Header.vue';
 import ProductCard from '../components/ProductCard.vue';
+import bus from '../mitt';
 
 export default {
   components: {
@@ -92,6 +93,7 @@ export default {
     },
     // 篩選商品種類
     filterProduct(navItem) {
+      console.log(navItem);
       const tempProduct = [];
       if (navItem === 'all') {
         this.products = this.allProducts;
@@ -104,11 +106,17 @@ export default {
           }
         });
         this.products = tempProduct;
+        console.log(this.products);
       }
     },
   },
   created() {
     this.getProductsData();
+  },
+  mounted() {
+    bus.on('sendCategory', (data) => {
+      console.log(data);
+    });
   },
 };
 </script>

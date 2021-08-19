@@ -7,13 +7,8 @@
       <img :src="img" alt="" />
     </swiper-slide>
     <div class="slogan">
-      <h2 class="title">SLOGAN</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Natus dolor deleniti reiciendis eius
-        ut eos ipsa tempora! Expedita dolorem similique aut! Debitis dolore quisquam quis officiis
-        esse quia eligendi ex?
-      </p>
+      <h2 class="title mb-3">玫瑰花語</h2>
+      <p class="slogan-text">愛情、高貴，象徵愛與美、美麗的愛情、美好常在</p>
     </div>
   </swiper>
 </template>

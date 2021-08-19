@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg fixed-top navbar-dark"
-       :class="navStatus"
+       :class="[navStatus, {'navBg-black':navIsOpen}]"
   >
     <div class="container">
       <h1 class="logo-sm">
@@ -9,6 +9,7 @@
       <button
         class="navbar-toggler"
         type="button"
+        @click="clickToggle"
         data-bs-toggle="collapse"
         data-bs-target="#navbarNav"
         aria-controls="navbarNav"
@@ -17,24 +18,27 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div
+        class="collapse navbar-collapse"
+        :class="{ 'show':navIsOpen }"
+      >
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link class="nav-link" to="/about">品牌</router-link>
+            <router-link class="nav-link" @click="clickToggle" to="/about">品牌</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/userProducts">商品</router-link>
+            <router-link class="nav-link" @click="clickToggle" to="/userProducts">商品</router-link>
           </li>
         </ul>
         <h1 class="logo-lg">
-          <router-link to="/">Rose</router-link>
+          <router-link @click="clickToggle" to="/">Rose</router-link>
         </h1>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link class="nav-link" to="/login">登入</router-link>
+            <router-link class="nav-link" @click="clickToggle" to="/login">登入</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/cart">購物車</router-link>
+            <router-link class="nav-link" @click="clickToggle" to="/cart">購物車</router-link>
           </li>
         </ul>
       </div>
@@ -47,13 +51,22 @@ export default {
   data() {
     return {
       navStatus: '',
+      navIsOpen: false,
     };
   },
+  methods: {
+    clickToggle() {
+      if (window.innerWidth < 992) {
+        this.navIsOpen = !this.navIsOpen;
+      }
+    },
+  },
   mounted() {
+    // 滾動改變 nav 背景顏色
     window.addEventListener('scroll', () => {
       const windowY = window.scrollY;
-      if (windowY >= 500) {
-        this.navStatus = 'changeStatus';
+      if (windowY >= 450) {
+        this.navStatus = 'navBg-black';
       } else {
         this.navStatus = '';
       }
