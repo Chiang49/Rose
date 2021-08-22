@@ -1,7 +1,7 @@
 .footer{
     color: #fff;
     text-align: center;
-    background: #000;
+    background: $primary;
     padding: 28px 14px;
     &-nav{
         display: flex;
@@ -10,6 +10,14 @@
         @media (min-width: 768px) {
             justify-content: flex-start;
             margin-bottom: 0;
+        }
+    }
+    &-navLink{
+        @media (min-width: 992px) {
+            transition: .6s;
+            &:hover{
+                color: $navbar-dark-hover-color;
+            }
         }
     }
     &-contact{
@@ -23,9 +31,9 @@
     .icon-style{
         width: 40px;
         height: 40px;
+        transition: 0.7s;
         &:hover{
             transform: translateY(-3px);
-            transition: 0.7s;
         }
     }
     &-shopInf{
@@ -45,14 +53,14 @@
             text-align: right;
         }
     }
-    .logo-group{
+    .logoGroup{
         display: flex;
         align-items: center;
         justify-content: center;
         @media (min-width: 768px) {
             justify-content: flex-end;
         }
-        .logo-img{
+        &-icon{
             width: 50px;
             height: 50px;
         }

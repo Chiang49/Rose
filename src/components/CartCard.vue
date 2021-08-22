@@ -9,39 +9,39 @@
   <template v-else>
     <li class="text-center mb-3" v-for="cartItem in cartData" :key="cartItem.id">
         <div class="cartCard">
-        <div class="cartCard-inf">
+          <div class="cartCard-content">
             <img
-            class="cartCard-image"
-            :src="cartItem.product.imageUrl"
-            :alt="cartItem.product.title"
+              class="cartCard-photo"
+              :src="cartItem.product.imageUrl"
+              :alt="cartItem.product.title"
             />
             <div class="cartCard-text">
-            <p class="cartCard-title">{{ cartItem.product.title }}</p>
-            <div class="input-group mb-2">
+              <p class="cartCard-title">{{ cartItem.product.title }}</p>
+              <div class="input-group mb-2">
                 <input type="number" class="form-control"
                        v-model.number="cartItem.qty"
                        @change="updataCart(cartItem.id, cartItem.qty)"
                 />
                 <span class="input-group-text">{{ cartItem.product.unit}}</span>
-            </div>
-            <p class="d-none d-md-block text-danger mb-2"
-                v-if="cartItem.product.category === '客制'"
-            >
+              </div>
+              <p class="d-none d-md-block text-danger mb-2"
+                 v-if="cartItem.product.category === '客制'"
+              >
                 此款為客制，下單後 2 個工作天會與您聯絡!
-            </p>
-            <p>總價：NT {{ cartItem.final_total }}</p>
+              </p>
+              <p>總價：NT {{ cartItem.final_total }}</p>
             </div>
-        </div>
-        <div class="cartCard-close">
+          </div>
+          <div class="cartCard-close">
             <button type="button" class="btn-close" aria-label="Close"
                     @click="deleteCart(cartItem.id)"
             ></button>
-        </div>
+          </div>
         </div>
         <p class="d-md-none text-danger"
-        v-if="cartItem.product.category === '客制'"
+           v-if="cartItem.product.category === '客制'"
         >
-        此款為客制，下單後 2 個工作天會與您聯絡!
+          此款為客制，下單後 2 個工作天會與您聯絡!
         </p>
     </li>
   </template>
@@ -106,7 +106,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@import '../assets/stylesheet/components/_cartCard.scss';
-</style>

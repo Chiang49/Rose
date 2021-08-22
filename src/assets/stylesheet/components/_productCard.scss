@@ -4,10 +4,6 @@
         padding-bottom: 100%;
         margin-bottom: 20px;
         position: relative;
-        .productPh{
-            border-radius: 16px;
-            position: absolute;
-        }
         &::before{
             content: '';
             background: rgba(0,0,0,.4);
@@ -17,22 +13,26 @@
             left: 0;
             bottom: 0;
             z-index: 2;
+            transition: .8s;
         }
+    }
+    &-photo{
+        border-radius: $border-radius;
+        position: absolute;
     }
     &-text{
         color: #aaa;
         text-align: center;
+        transition: .8s;
     }
     &:hover{
         .productCard-header{
             &::before{
                 background: rgba(0,0,0,.0);
-                transition: 0.9s;
             }
         }
         .productCard-text{
             color: #fff;
-            transition: 0.9s;
         }
     }
 }

@@ -1,5 +1,5 @@
 <template>
-  <header class="otherHeader">
+  <header class="otherPagesHeader">
     <img :src="photoUrl" :style="photoPosition" alt="">
   </header>
 </template>
@@ -16,7 +16,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@import '../assets/stylesheet/components/_header.scss';
-</style>

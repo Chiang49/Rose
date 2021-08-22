@@ -1,6 +1,22 @@
 
-@import '../node_modules/bootstrap/scss/functions';
+@import '~bootstrap/scss/functions';
 @import '../stylesheet/helper/variables';
+@import '~bootstrap/scss/mixins';
 @import '~bootstrap/scss/bootstrap';
 
 @import '../stylesheet/helper/base';
+
+// 元件
+@import './components/pagination';
+@import './components/activity';
+@import './components/cartCard';
+@import './components/divider';
+@import './components/footer';
+@import './components/header';
+@import './components/indexHeader';
+@import './components/navbar';
+@import './components/orderForm';
+@import './components/pagination';
+@import './components/productCard';
+@import './components/serviceCard';
+@import './components/subscription';

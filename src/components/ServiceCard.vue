@@ -1,26 +1,24 @@
 <template>
   <li class="serviceItem" v-for="(item, key) in service" :key="key">
-    <router-link
+    <a
+      href="#"
       class="serviceCard"
-      to="/userProducts"
-      @click="goProducts(item.title)"
+      @click.prevent="goProducts(item.title)"
     >
-      <div class="imgFrame">
+      <div class="serviceCard-photo">
         <img :src="item.imgUrl" :alt="item.title" />
       </div>
-      <div class="serviceContent">
-        <div class="serviceText">
+      <div class="serviceCard-content">
+        <div class="serviceCard-text">
           <h3 class="subtitle">{{ item.title }}</h3>
           <p>{{ item.content }}</p>
         </div>
       </div>
-    </router-link>
+    </a>
   </li>
 </template>
 
 <script>
-import bus from '../mitt';
-
 export default {
   data() {
     return {
@@ -32,7 +30,7 @@ export default {
             'https://images.unsplash.com/photo-1508105769260-9d986349313e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80',
         },
         {
-          title: '花飾',
+          title: '擺飾',
           content: '為特別的您，設計出不平凡的玫瑰擺飾',
           imgUrl:
             'https://images.unsplash.com/photo-1599733594230-6b823276abcc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80',
@@ -48,12 +46,11 @@ export default {
   },
   methods: {
     goProducts(category) {
-      bus.emit('sendCategory', category);
+      this.$router.push({
+        name: 'shop',
+        query: { category },
+      });
     },
   },
 };
 </script>
-
-<style lang="scss">
-@import "../assets/stylesheet/components/_serviceCard.scss";
-</style>

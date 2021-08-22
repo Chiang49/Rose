@@ -27,7 +27,7 @@
             <router-link class="nav-link" @click="clickToggle" to="/about">品牌</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" @click="clickToggle" to="/userProducts">商品</router-link>
+            <router-link class="nav-link" @click="clickToggle" to="/shop">商品</router-link>
           </li>
         </ul>
         <h1 class="logo-lg">
@@ -74,7 +74,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@import '../assets/stylesheet/components/_navbar.scss';
-</style>

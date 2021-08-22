@@ -26,7 +26,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@import "../assets/stylesheet/components/_indexHeader.scss";
-</style>

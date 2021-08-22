@@ -8,13 +8,13 @@
         <ul class="productNav">
           <li>
             <a class="productNav-item" href="#"
-               @click.prevent="filterProduct('all')"
+               @click.prevent="changeCategory('all')"
                :class="{ 'action': actionNav === 'all' }"
             >全部</a>
           </li>
           <li v-for="(categoryItem, key) in productNav" :key="key">
             <a class="productNav-item" href="#"
-               @click.prevent="filterProduct(categoryItem)"
+               @click.prevent="changeCategory(categoryItem)"
                :class="{ 'action': actionNav === categoryItem }"
             >
               {{ categoryItem }}
@@ -23,7 +23,7 @@
         </ul>
       </div>
       <div class="col-md-9">
-        <ul class="row">
+        <ul class="row mb-4">
           <li class="col-md-6 col-lg-3 mb-5"
               v-for="productItem in products"
               :key="productItem.id"
@@ -33,6 +33,15 @@
             ></ProductCard>
           </li>
         </ul>
+        <div
+          class="d-flex justify-content-center"
+          v-if="actionNav === 'all'"
+        >
+          <Pagination
+          :pages="pagination"
+          @goPage="getPageProducts"
+        ></Pagination>
+        </div>
       </div>
     </div>
   </div>
@@ -41,12 +50,13 @@
 <script>
 import Header from '../components/Header.vue';
 import ProductCard from '../components/ProductCard.vue';
-import bus from '../mitt';
+import Pagination from '../components/Pagination.vue';
 
 export default {
   components: {
     Header,
     ProductCard,
+    Pagination,
   },
   data() {
     return {
@@ -61,20 +71,18 @@ export default {
     };
   },
   methods: {
-    // 取得所有商品列表
-    getProductsData(page = 1) {
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products?page=${page}`;
+    // 取得所有商品
+    getAllProducts() {
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
       this.$http.get(api).then((res) => {
-        // console.log(res);
         if (res.data.success) {
           this.allProducts = res.data.products;
-          this.products = this.allProducts;
-          this.pagination = res.data.pagination;
           this.categoryNav();
+          this.isFilterCategory();
         } else {
           this.$swal.fire({
             icon: 'error',
-            title: '商品載入失敗，請重新近來',
+            title: '全部商品資料取得失敗，請重新載入',
           });
         }
       }).catch((err) => {
@@ -91,32 +99,65 @@ export default {
         (item, index) => tempNav.indexOf(item) === index,
       );
     },
-    // 篩選商品種類
-    filterProduct(navItem) {
-      console.log(navItem);
+    // 建立篩選類別網址
+    changeCategory(category) {
+      this.actionNav = category;
+      this.$router.push({
+        name: 'shop',
+        query: { category },
+      });
+    },
+    // 商品類別篩選
+    filterCategory() {
       const tempProduct = [];
-      if (navItem === 'all') {
-        this.products = this.allProducts;
-        this.actionNav = 'all';
+      if (this.actionNav === 'all') {
+        this.getPageProducts();
       } else {
         this.allProducts.forEach((item) => {
-          if (item.category === navItem) {
-            tempProduct.push({ ...item });
-            this.actionNav = navItem;
+          if (item.category === this.actionNav) {
+            tempProduct.push(item);
           }
         });
-        this.products = tempProduct;
-        console.log(this.products);
+      }
+      this.products = { ...tempProduct };
+      console.log(this.products);
+    },
+    // 取得商品列表(每 10 個一頁)
+    getPageProducts(page = 1) {
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products?page=${page}`;
+      this.$http.get(api).then((res) => {
+        // console.log(res);
+        if (res.data.success) {
+          this.products = res.data.products;
+          this.pagination = res.data.pagination;
+        } else {
+          this.$swal.fire({
+            icon: 'error',
+            title: '商品載入失敗，請重新近來',
+          });
+        }
+      }).catch((err) => {
+        console.log(err);
+      });
+    },
+    // 判斷載入頁面時是否已有篩選項目
+    isFilterCategory() {
+      const urlCategory = this.$route.query.category;
+      if (urlCategory !== undefined) {
+        this.actionNav = urlCategory;
+        this.filterCategory();
+      } else {
+        this.getPageProducts();
       }
     },
   },
-  created() {
-    this.getProductsData();
+  watch: {
+    $route() {
+      this.filterCategory();
+    },
   },
-  mounted() {
-    bus.on('sendCategory', (data) => {
-      console.log(data);
-    });
+  created() {
+    this.getAllProducts();
   },
 };
 </script>

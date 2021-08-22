@@ -17,6 +17,7 @@
       left: 0;
     }
     &-content{
+      width: 100%;
       text-align: left;
       padding: 0 20px;
       position: absolute;
@@ -27,7 +28,6 @@
         padding: 0 50px;
       }
       label{
-        color: #fff;
         font-size: 2rem;
         font-weight: bolder;
         margin-bottom: 16px;
