@@ -33,3 +33,9 @@
 @import './pages/shop';
 
 //----------------後台-------------------
+// 元件
+@import './components/Dashboard/d_Navbar';
+@import './components/Dashboard/productModal';
+
+// 後台頁面設定
+@import './pages/Dashboard/dashboard';

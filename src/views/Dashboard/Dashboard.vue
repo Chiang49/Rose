@@ -34,7 +34,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@import '@/assets/stylesheet/pages/Dashboard/_dashboard.scss';
-</style>

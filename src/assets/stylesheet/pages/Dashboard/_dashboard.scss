@@ -1,7 +1,6 @@
 
 .dashboardTable {
   width: 85%;
-  color: #fff;
   text-align: left;
   margin: 0 auto 60px;
   table {
@@ -24,6 +23,7 @@
   }
   .btn {
     white-space: nowrap;
+    transition: .6s;
   }
 }
 .switch-group {
@@ -49,8 +49,8 @@
     }
   }
   .open {
-    background: #455a64;
-    border: #455a64;
+    background: $secondary;
+    border: $secondary;
     .switch-circle {
       animation-name: open;
       animation-duration: 0.6s;

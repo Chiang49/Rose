@@ -77,7 +77,6 @@ export default {
           if (res.data.success) {
             this.cartTotal = res.data.data;
             this.cartDatas = res.data.data.carts;
-            // console.log(this.cartTotal, this.cartDatas);
           }
         })
         .catch((err) => {

@@ -303,7 +303,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@import '@/assets/stylesheet/components/Dashboard/_productModal.scss';
-</style>

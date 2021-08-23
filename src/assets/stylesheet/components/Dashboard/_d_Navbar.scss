@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Fuggles&display=swap');
 
 .logo-lg{
     font-family: 'Fuggles', cursive;
     font-size: 4rem;
-    color: #fff;
     margin-bottom: 0;
+    cursor: pointer;
+    transition: .6s;
     &:hover{
       color: rgb(141, 0, 0);
     }

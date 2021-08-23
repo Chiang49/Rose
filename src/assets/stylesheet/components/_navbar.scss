@@ -14,7 +14,6 @@
   padding: 16px 0;
   transition: .6s;
 }
-
 // 改變 Nav 背景
 .navBg-black{
   background: rgba(0,0,0, .9);
@@ -30,5 +29,21 @@
   display: none;
   @media (min-width: 992px) { 
     display: block;
+  }
+}
+.cartIcon{
+  position: relative;
+  &-num{
+    width: 18px;
+    height: 18px;
+    background: rgba(105, 1, 1, 0.8);
+    font-size: 6px;
+    border-radius: 50%;
+    position: absolute;
+    top: -7px;
+    right: -6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

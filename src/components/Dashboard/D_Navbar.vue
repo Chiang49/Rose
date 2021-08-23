@@ -54,7 +54,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@import '@/assets/stylesheet/components/Dashboard/_d_Navbar.scss';
-</style>

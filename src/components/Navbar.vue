@@ -35,10 +35,19 @@
         </h1>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link class="nav-link" @click="clickToggle" to="/login">登入</router-link>
+            <router-link class="nav-link" @click="clickToggle" to="/login">
+              <span class="material-icons">
+                account_circle
+              </span>
+            </router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" @click="clickToggle" to="/cart">購物車</router-link>
+            <router-link class="nav-link" @click="clickToggle" to="/cart">
+              <p class="material-icons cartIcon">
+                shopping_cart
+                <span class="cartIcon-num">{{ cartNum }}</span>
+              </p>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -50,18 +59,32 @@
 export default {
   data() {
     return {
+      cartNum: 0,
       navStatus: '',
       navIsOpen: false,
     };
   },
   methods: {
+    // navBar toggle 開關
     clickToggle() {
       if (window.innerWidth < 992) {
         this.navIsOpen = !this.navIsOpen;
       }
     },
+    // 取得購物車數量
+    getCartNum() {
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
+      this.$http.get(api).then((res) => {
+        if (res.data.success) {
+          this.cartNum = res.data.data.carts.length;
+        }
+      }).catch((err) => {
+        console.log(err);
+      });
+    },
   },
   mounted() {
+    this.getCartNum();
     // 滾動改變 nav 背景顏色
     window.addEventListener('scroll', () => {
       const windowY = window.scrollY;
