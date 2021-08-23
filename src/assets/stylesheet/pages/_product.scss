@@ -6,7 +6,7 @@
     position: relative;
     margin-bottom: 24px;
   }
-  &-ph{
+  &-photo{
     border-radius: 1rem;
     position: absolute;
   }
@@ -38,7 +38,6 @@
     margin-bottom: 16px;
   }
   .noteItem{
-    align-items: center;
     h3{
       margin-bottom: 16px;
     }
@@ -47,7 +46,6 @@
       padding-left: 30px;
     }
     li{
-      color: #fff;
       margin-bottom: 8px;
     }
     img{

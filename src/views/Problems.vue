@@ -1,6 +1,6 @@
 <template>
   <Header :photoUrl="headerPhoto.url"></Header>
-  <div class="container">
+  <section class="container">
     <h2 class="subtitle mb-4">常見問題</h2>
     <ul class="accordion" id="accordionExample">
       <li class="accordion-item">
@@ -33,7 +33,7 @@
         </div>
       </li>
     </ul>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -52,7 +52,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@import '../assets/stylesheet/pages/_problems.scss';
-</style>

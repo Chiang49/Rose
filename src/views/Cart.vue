@@ -2,35 +2,45 @@
   <Header
         :photoUrl="headerPhoto.url"
   ></Header>
-  <div class="container text-center">
-    <h2 class="subtitle">購物車</h2>
-    <ul class="cartTable">
-      <CartCard
-        :cart = "cartDatas"
-        @updataCart = "getCartsData"
-      ></CartCard>
-    </ul>
-    <div class="row cartTotal">
-      <div class="col-md-6 cartTotal-btns">
-        <button
-          type="button"
-          class="btn btn-secondary me-2"
-          @click="checkout"
-        >我要結帳囉</button>
-        <button
-          type="button"
-          class="btn btn-danger"
-          @click="deleteCartAll"
-        >清空購物車</button>
+  <section class="cart">
+    <div class="container">
+      <h2 class="subtitle">購物車</h2>
+      <ul class="cart-table">
+        <CartCard
+          :cart = "cartDatas"
+          @updataCart = "getCartsData"
+        ></CartCard>
+      </ul>
+      <div class="row align-content-center mb-11">
+        <div class="col-md-6">
+          <div class="cart-btnGroup">
+            <button
+              type="button"
+              class="btn btn-secondary me-2"
+              @click="checkout"
+            >
+              我要結帳囉
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              @click="deleteCartAll"
+            >
+              清空購物車
+            </button>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <p class="cart-price">總金額：NT {{ cartTotal.final_total }} 元</p>
+        </div>
       </div>
-      <p class="col-md-6 cartTotal-price">總金額：NT {{ cartTotal.final_total }} 元</p>
+      <OrderForm
+        ref="orderForm"
+        class="collapse"
+        @renderCart="getCartsData"
+      ></OrderForm>
     </div>
-    <OrderForm
-      ref="orderForm"
-      class="collapse"
-      @renderCart="getCartsData"
-    ></OrderForm>
-  </div>
+  </section>
   <Subscription></Subscription>
 </template>
 
@@ -117,7 +127,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@import '../assets/stylesheet/pages/_cart.scss';
-</style>

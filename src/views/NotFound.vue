@@ -1,10 +1,12 @@
 <template>
   <div class="notFound">
     <div class="container">
-      <div class="notFound-text">
+      <div class="notFound-content">
         <h2 class="notFound-title">404 錯誤的頁面</h2>
         <p>親愛的客人，您跑到不存在的頁面囉。</p>
-        <p class="countSeconds"><span class="notFound-notice">{{ seconds }}</span> 秒後將會接您回首頁。</p>
+        <p class="countSeconds">
+          <span class="notFound-notice">{{ seconds }}</span> 秒後將會接您回首頁。
+        </p>
       </div>
     </div>
   </div>
@@ -31,7 +33,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@import '../assets/stylesheet/pages/_notFound.scss';
-</style>

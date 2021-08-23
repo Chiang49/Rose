@@ -1,4 +1,4 @@
-.productNav{
+.shopNav{
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -20,18 +20,18 @@
             }
         }
     }
-}
-.productNav-item{
-    text-align: center;
-    padding: 8px 16px;
-    &:hover{
-        background: rgba(#455a64, .6);
+    &-item{
+        text-align: center;
+        padding: 8px 16px;
         transition: 0.8s;
+        &:hover{
+            background: rgba(#455a64, .6);
+        }
+        @media (min-width: 768px) {
+            padding: 20px 16px;
+        }
     }
-    @media (min-width: 768px) {
-        padding: 20px 16px;
+    .action{
+        background: #455a64;
     }
-}
-.action{
-    background: #455a64;
 }

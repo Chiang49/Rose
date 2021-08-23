@@ -6,6 +6,7 @@
 
 @import '../stylesheet/helper/base';
 
+//----------------前台-------------------
 // 元件
 @import './components/pagination';
 @import './components/activity';
@@ -20,3 +21,15 @@
 @import './components/productCard';
 @import './components/serviceCard';
 @import './components/subscription';
+
+// 頁面
+@import './pages/about';
+@import './pages/cart';
+@import './pages/index';
+@import './pages/login';
+@import './pages/notFound';
+@import './pages/problems';
+@import './pages/product';
+@import './pages/shop';
+
+//----------------後台-------------------

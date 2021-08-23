@@ -16,7 +16,7 @@
         padding: 80px 40px;
     }
     &-title{
-        background: #000;
+        background: $primary;
         font-family: 'Fuggles', cursive;
         font-size: 2.5rem;
         padding: 8px 28px;
@@ -30,10 +30,10 @@
             top: -77px;
         }
     }
-    &-img{
+    &-sm-photo{
         height: 400px;
     }
-    &-background{
+    &-md-bgPhoto{
         display: none;
         width: 500px;
         height: 650px;

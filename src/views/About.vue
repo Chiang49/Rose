@@ -7,11 +7,11 @@
       <h2 class="introduce-title">Rose's story</h2>
       <div class="row align-items-center">
         <div class="d-md-none mb-3 mb-md-0">
-          <div class="introduce-img">
+          <div class="introduce-sm-photo">
             <img src="https://images.unsplash.com/photo-1584461730592-5bfab6460bae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80" alt="">
           </div>
         </div>
-        <div class="introduce-background"></div>
+        <div class="introduce-md-bgPhoto"></div>
         <div class="offset-md-6 col-md-6 introduce-textGroup">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -28,7 +28,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -48,7 +47,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@import '../assets/stylesheet/pages/_about.scss';
-</style>

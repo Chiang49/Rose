@@ -1,9 +1,9 @@
 <template>
   <IndexHeader></IndexHeader>
   <!-- 介紹文 -->
-  <div class="container">
+  <div class="container mb-10">
     <Divider></Divider>
-    <section class="block">
+    <section>
       <div class="introduction">
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -26,9 +26,9 @@
   <!-- 活動區 -->
   <Activity></Activity>
   <!-- 設計服務 -->
-  <div class="container">
+  <div class="container mb-10">
     <Divider></Divider>
-    <section class="block">
+    <section>
       <ul class="service">
         <ServiceCard></ServiceCard>
       </ul>
@@ -55,7 +55,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@import '../assets/stylesheet/pages/_index.scss';
-</style>

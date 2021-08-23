@@ -257,6 +257,7 @@ $spacers: (
   5: $spacer * 3,
   9: $spacer * 3.75, //60px
   10: $spacer * 5, //80px
+  11: $spacer * 7.5, //120px
 ) !default;
 
 $negative-spacers: if($enable-negative-margins, negativify-map($spacers), null) !default;
@@ -698,7 +699,7 @@ $input-bg:                              $white !default;
 $input-disabled-bg:                     $gray-200 !default;
 $input-disabled-border-color:           null !default;
 
-$input-color:                           $body-color !default;
+$input-color:                           #000; //$body-color !default;
 $input-border-color:                    $gray-400 !default;
 $input-border-width:                    $input-btn-border-width !default;
 $input-box-shadow:                      $box-shadow-inset !default;

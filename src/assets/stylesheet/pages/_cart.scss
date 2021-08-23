@@ -1,10 +1,9 @@
-.cartTable{
-    border-bottom: 1px solid #fff;
-}
-.cartTotal{
-    margin-bottom: 120px;
-    align-content: center;
-    &-btns{
+.cart{
+    text-align: center;
+    &-table{
+        border-bottom: 1px solid #fff;
+    }
+    &-btnGroup{
         text-align: center;
         margin-bottom: 16px;
         @media (min-width: 768px) {
@@ -20,3 +19,4 @@
         }
     }
 }
+

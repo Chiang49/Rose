@@ -5,15 +5,15 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3">
-        <ul class="productNav">
+        <ul class="shopNav">
           <li>
-            <a class="productNav-item" href="#"
+            <a class="shopNav-item" href="#"
                @click.prevent="changeCategory('all')"
                :class="{ 'action': actionNav === 'all' }"
             >全部</a>
           </li>
           <li v-for="(categoryItem, key) in productNav" :key="key">
-            <a class="productNav-item" href="#"
+            <a class="shopNav-item" href="#"
                @click.prevent="changeCategory(categoryItem)"
                :class="{ 'action': actionNav === categoryItem }"
             >
@@ -38,9 +38,9 @@
           v-if="actionNav === 'all'"
         >
           <Pagination
-          :pages="pagination"
-          @goPage="getPageProducts"
-        ></Pagination>
+            :pages="pagination"
+            @goPage="getPageProducts"
+          ></Pagination>
         </div>
       </div>
     </div>
@@ -161,7 +161,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@import '../assets/stylesheet/pages/_userProducts.scss';
-</style>
