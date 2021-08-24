@@ -120,7 +120,6 @@ export default {
         });
       }
       this.products = { ...tempProduct };
-      console.log(this.products);
     },
     // 取得商品列表(每 10 個一頁)
     getPageProducts(page = 1) {

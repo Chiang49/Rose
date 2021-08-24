@@ -42,11 +42,6 @@ export default {
       type: Object,
     },
   },
-  watch: {
-    pages() {
-      console.log(this.pages);
-    },
-  },
   methods: {
     goPage(page) {
       this.$emit('goPage', page);

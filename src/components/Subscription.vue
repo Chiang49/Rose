@@ -1,11 +1,11 @@
 <template>
   <section class="subscription">
     <div class="container subscription-content">
-      <label for="email">訂閱 活動資訊</label>
+      <label for="subscriptionEmail">訂閱 活動資訊</label>
       <Form class="input-group" v-slot="{ errors }" @submit="onSubmit">
         <Field
           type="email"
-          id="email"
+          id="subscriptionEmail"
           class="form-control"
           name="Email"
           placeholder="輸入信箱取得活動訊息"

@@ -76,6 +76,7 @@
 import Header from '../components/Header.vue';
 import Divider from '../components/Divider.vue';
 import ProductCard from '../components/ProductCard.vue';
+import bus from '../mitt';
 
 export default {
   components: {
@@ -134,6 +135,7 @@ export default {
             icon: 'success',
             title: res.data.message,
           });
+          this.renderCartNum();
         } else {
           this.$swal.fire({
             icon: 'error',
@@ -143,6 +145,10 @@ export default {
       }).catch((err) => {
         console.log(err);
       });
+    },
+    // 即時更新 Nav 的 cart 上數量
+    renderCartNum() {
+      bus.emit('renderNavCartNum');
     },
     // 取得所有商品
     getAllProduct() {

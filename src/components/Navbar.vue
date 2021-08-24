@@ -56,6 +56,8 @@
 </template>
 
 <script>
+import bus from '../mitt';
+
 export default {
   data() {
     return {
@@ -82,6 +84,9 @@ export default {
         console.log(err);
       });
     },
+  },
+  created() {
+    bus.on('renderNavCartNum', this.getCartNum);
   },
   mounted() {
     this.getCartNum();
