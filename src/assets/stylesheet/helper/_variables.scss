@@ -1122,11 +1122,11 @@ $accordion-button-padding-x:              $accordion-padding-x !default;
 $accordion-button-color:                  #fff; //$accordion-color !default;
 $accordion-button-bg:                     $accordion-bg !default;
 $accordion-transition:                    $btn-transition, border-radius .15s ease !default;
-$accordion-button-active-bg:              #000; //tint-color($component-active-bg, 90%) !default;
+$accordion-button-active-bg:              $secondary; //tint-color($component-active-bg, 90%) !default;
 $accordion-button-active-color:           #fff; //shade-color($primary, 10%) !default;
 
-$accordion-button-focus-border-color:     $input-focus-border-color !default;
-$accordion-button-focus-box-shadow:       $btn-focus-box-shadow !default;
+$accordion-button-focus-border-color:     none;//$input-focus-border-color !default;
+$accordion-button-focus-box-shadow:       none;//$btn-focus-box-shadow !default;
 
 $accordion-icon-width:                    1.25rem !default;
 $accordion-icon-color:                    $accordion-color !default;

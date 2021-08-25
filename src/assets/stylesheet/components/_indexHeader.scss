@@ -11,14 +11,15 @@
       right: 0;
       left: 0;
       z-index: 2;
-      background: linear-gradient(54deg, black 10%, transparent),
-                  linear-gradient(transparent, rgba(0,0,0, .9) 99.9%);
+      background: linear-gradient(66deg, black 3%, transparent),
+                  linear-gradient(transparent, rgba(0,0,0, .89) 99.9%);
     }
     @media (min-width: 768px) { 
       height: 500px;
     }
     @media (min-width: 992px) { 
-      height: 600px;
+      height: 100vh;
+      // height: 600px;
     }
   }
   .slogan{
