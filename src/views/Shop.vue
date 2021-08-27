@@ -89,7 +89,7 @@ export default {
         console.log(err);
       });
     },
-    // 取得商品種類選單
+    // 取得商品種類製作 Nav 選單
     categoryNav() {
       const tempNav = [];
       this.allProducts.forEach((item) => {
@@ -97,6 +97,7 @@ export default {
       });
       this.productNav = tempNav.filter(
         (item, index) => tempNav.indexOf(item) === index,
+        // 回傳該資料再陣列中第一次被找到之索引
       );
     },
     // 建立篩選類別網址

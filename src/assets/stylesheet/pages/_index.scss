@@ -1,12 +1,6 @@
-
-.introduction{
-  width: 70%;
-  color: #fff;
-  text-align: center;
-  margin: 0 auto;
-  p{
-    line-height: 1.8;
-    margin-bottom: 8px;
+.hotProduct{
+  @media (min-width: 768px) {
+    padding: 0 60px;
   }
 }
 

@@ -3,24 +3,8 @@
   <!-- 介紹文 -->
   <div class="container mb-10">
     <Divider></Divider>
-    <section>
-      <div class="introduction">
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-          Voluptatibus quibusdam officiis, voluptas ipsum laudantium ad nisi quos.
-          Earum itaque unde beatae saepe facere alias at nemo, labore molestiae quo deleniti.
-        </p>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-          Voluptatibus quibusdam officiis, voluptas ipsum laudantium ad nisi quos.
-          Earum itaque unde beatae saepe facere alias at nemo, labore molestiae quo deleniti.
-        </p>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-          Voluptatibus quibusdam officiis, voluptas ipsum laudantium ad nisi quos.
-          Earum itaque unde beatae saepe facere alias at nemo, labore molestiae quo deleniti.
-        </p>
-      </div>
+    <section class="hotProduct">
+      <HotProductCard></HotProductCard>
     </section>
   </div>
   <!-- 活動區 -->
@@ -41,6 +25,7 @@
 <script>
 import IndexHeader from '../components/IndexHeader.vue';
 import Divider from '../components/Divider.vue';
+import HotProductCard from '../components/HotProductCard.vue';
 import Activity from '../components/Activity.vue';
 import ServiceCard from '../components/ServiceCard.vue';
 import Subscription from '../components/Subscription.vue';
@@ -49,6 +34,7 @@ export default {
   components: {
     IndexHeader,
     Divider,
+    HotProductCard,
     Activity,
     ServiceCard,
     Subscription,

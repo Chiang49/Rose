@@ -106,7 +106,6 @@ export default {
     getProductDetail(id) {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${id}`;
       this.$http.get(api).then((res) => {
-        // console.log(res);
         if (res.data.success) {
           this.productDetail = res.data.product;
           this.headerPhoto.url = this.productDetail.imageUrl;
