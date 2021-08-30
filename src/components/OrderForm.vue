@@ -30,7 +30,7 @@
       </div>
       <div class="mb-3">
         <label for="tel" class="form-label">手機</label>
-        <Field type="tel"
+        <Field type="number"
               class="form-control"
               id="tel"
               placeholder="0900000000"
@@ -113,7 +113,6 @@ export default {
       };
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order`;
       this.$http.post(api, { data: orderData }).then((res) => {
-        // console.log(res);
         if (res.data.success) {
           this.$swal.fire({
             icon: 'success',
@@ -122,6 +121,7 @@ export default {
           this.$refs.orderFrom.resetForm();
           this.message = '';
           this.$emit('renderCart');
+          this.$emit('renderCartNum');
           this.closeForm();
         } else {
           this.$swal.fire({

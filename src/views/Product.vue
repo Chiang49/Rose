@@ -128,12 +128,12 @@ export default {
         qty: this.productQty,
       };
       this.$http.post(api, { data: cartData }).then((res) => {
-        // console.log(res);
         if (res.data.success) {
           this.$swal.fire({
             icon: 'success',
             title: res.data.message,
           });
+          this.productQty = 1;
           this.renderCartNum();
         } else {
           this.$swal.fire({

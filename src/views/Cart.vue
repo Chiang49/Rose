@@ -49,6 +49,7 @@
         ref="orderForm"
         class="collapse"
         @renderCart="getCartsData"
+        @renderCartNum="renderCartNum"
       ></OrderForm>
     </div>
   </section>

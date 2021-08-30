@@ -24,10 +24,18 @@
       >
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link class="nav-link" @click="clickToggle" to="/about">品牌</router-link>
+            <router-link class="nav-link"
+                          :class="{ 'active': this.$route.name === 'about' }"
+                          @click="clickToggle"
+                          to="/about"
+            >品牌</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" @click="clickToggle" to="/shop">商品</router-link>
+            <router-link class="nav-link"
+                          :class="{ 'active': this.$route.name === 'shop' }"
+                          @click="clickToggle"
+                          to="/shop"
+            >商品</router-link>
           </li>
         </ul>
         <h1 class="logo-lg">
@@ -35,14 +43,22 @@
         </h1>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link class="nav-link" @click="clickToggle" to="/login">
+            <router-link class="nav-link"
+                          :class="{ 'active': this.$route.name === 'login' }"
+                          @click="clickToggle"
+                          to="/login"
+            >
               <span class="material-icons">
                 account_circle
               </span>
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" @click="clickToggle" to="/cart">
+            <router-link class="nav-link"
+                          :class="{ 'active': this.$route.name === 'cart' }"
+                          @click="clickToggle"
+                          to="/cart"
+            >
               <p class="material-icons cartIcon">
                 shopping_cart
                 <span class="cartIcon-num">{{ cartNum }}</span>

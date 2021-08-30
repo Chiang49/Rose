@@ -967,8 +967,8 @@ $navbar-toggler-transition:         box-shadow .15s ease-in-out !default;
 // scss-docs-end navbar-variables
 
 // scss-docs-start navbar-theme-variables
-$navbar-dark-color:                 #fff; //rgba($white, 1);  //rgba($white, .55) !default;
-$navbar-dark-hover-color:           #aaa; //rgba($white, .75) !default;
+$navbar-dark-color:                 rgb(196, 196, 196); //rgba($white, 1);  //rgba($white, .55) !default;
+$navbar-dark-hover-color:           #eee; //rgba($white, .75) !default;
 $navbar-dark-active-color:          $white !default;
 $navbar-dark-disabled-color:        rgba($white, .25) !default;
 $navbar-dark-toggler-icon-bg:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-dark-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
@@ -1059,7 +1059,7 @@ $pagination-border-color:           $secondary; //$gray-300 !default;
 
 $pagination-focus-color:            #fff; //$link-hover-color !default;
 $pagination-focus-bg:               $secondary; //$gray-200 !default;
-$pagination-focus-box-shadow:       $input-btn-focus-box-shadow !default;
+$pagination-focus-box-shadow:       none; //$input-btn-focus-box-shadow !default;
 $pagination-focus-outline:          0 !default;
 
 $pagination-hover-color:            #fff; //$link-hover-color !default;
