@@ -1,4 +1,5 @@
 <template>
+  <Loading :loading="is_Loading" />
   <Header :photoUrl="headerPhoto.url"></Header>
   <div class="productPage">
     <div class="container">
@@ -7,18 +8,18 @@
           <div class="productPage-frame">
             <img
               class="productPage-photo"
-              :src="productDetail.imageUrl"
-              :alt="productDetail.title"
+              :src="product.imageUrl"
+              :alt="product.title"
             >
           </div>
         </div>
         <div class="col-md-6">
           <div class="productPage-content">
-            <p class="category">{{ productDetail.category }}</p>
-            <h2 class="title">{{ productDetail.title }}</h2>
-            <p class="price">NT {{ productDetail.price }}</p>
+            <p class="category">{{ product.category }}</p>
+            <h2 class="title">{{ product.title }}</h2>
+            <p class="price">NT {{ product.price }}</p>
             <p class="notice"
-              v-if="productDetail.category === '客製'"
+              v-if="product.category === '客製'"
             >
               此款為客制，下單後 2 個工作天會與您聯絡!
             </p>
@@ -29,7 +30,7 @@
                   min="1"
                   v-model.number="productQty"
               >
-              <span class="input-group-text">{{ productDetail.unit }}</span>
+              <span class="input-group-text">{{ product.unit }}</span>
             </div>
             <button
                 type="button"
@@ -39,7 +40,7 @@
           </div>
         </div>
       </section>
-      <Divider></Divider>
+      <Divider :title="dividerTitle.section1"></Divider>
       <section class="noteItem">
         <div class="row align-items-center">
           <div class="col-md-6">
@@ -55,7 +56,7 @@
           </div>
         </div>
       </section>
-      <Divider></Divider>
+      <Divider :title="dividerTitle.section2"></Divider>
       <section class="mb-9">
         <swiper class="mySwiper"
                 :slides-per-view="swiper.slidesPerView"
@@ -86,8 +87,9 @@ export default {
   },
   data() {
     return {
+      is_Loading: false,
       productId: '',
-      productDetail: {},
+      product: {},
       headerPhoto: {
         url: '',
         position: '',
@@ -99,16 +101,21 @@ export default {
         slidesPerView: 0,
         spaceBetween: 0,
       },
+      dividerTitle: {
+        section1: 'Notice',
+        section2: 'Similar',
+      },
     };
   },
   methods: {
     // 取得商品細節
     getProductDetail(id) {
+      this.is_Loading = true;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${id}`;
       this.$http.get(api).then((res) => {
         if (res.data.success) {
-          this.productDetail = res.data.product;
-          this.headerPhoto.url = this.productDetail.imageUrl;
+          this.product = res.data.product;
+          this.headerPhoto.url = this.product.imageUrl;
           this.getAllProduct();
         } else {
           this.$swal.fire({
@@ -116,12 +123,14 @@ export default {
             title: res.data.message,
           });
         }
+        this.is_Loading = false;
       }).catch((err) => {
         console.log(err);
       });
     },
     // 加到購物車
     addCart() {
+      this.is_Loading = true;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       const cartData = {
         product_id: this.productId,
@@ -141,6 +150,7 @@ export default {
             title: res.data.message,
           });
         }
+        this.is_Loading = false;
       }).catch((err) => {
         console.log(err);
       });
@@ -169,8 +179,8 @@ export default {
     // 用所有商品篩選相似商品
     filterProduct() {
       this.likeProducts = this.allProducts.filter(
-        (item) => item.category === this.productDetail.category
-                  && item.id !== this.productDetail.id,
+        (item) => item.category === this.product.category
+                  && item.id !== this.product.id,
       );
     },
     // swiper 顯示數量隨著視窗寬度作調整

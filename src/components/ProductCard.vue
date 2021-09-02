@@ -4,7 +4,7 @@
       <img class="productCard-photo" :src="product.imageUrl" :alt="product.title">
     </div>
     <p class="productCard-text">{{ product.title }}</p>
-    <p class="productCard-text">NT {{ product.price }}</p>
+    <p class="productCard-text">NT {{ toCurrency(product.price) }}</p>
   </router-link>
 </template>
 

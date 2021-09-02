@@ -1,15 +1,13 @@
 .divider{
-    width: 100%;
-    border-bottom: 4px double rgb(189, 189, 189);
-    margin: 80px 0 50px;
-    position: relative;
-    &-icon{
-      width: 80px;
-      height: auto;
-      background: $primary;
-      position: absolute;
-      bottom: -37px;
-      left: 50%;
-      transform: translate(-50%, 0);
-    }
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  &-title{
+    font-family: 'Fuggles', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 0;
   }
+  &-icon{
+    width: 30px;
+  }
+}

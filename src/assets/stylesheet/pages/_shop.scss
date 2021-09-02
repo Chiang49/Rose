@@ -1,11 +1,16 @@
 .shopNav{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
     margin-bottom: 60px;
+    li{
+        width: 33.333%;
+    }
     @media (min-width: 768px) {
         display: block;
         li{
+            width: 100%;
             &:first-child{
                 a{
                     border-top-right-radius: 1rem;
@@ -25,13 +30,13 @@
         padding: 8px 16px;
         transition: 0.8s;
         &:hover{
-            background: rgba(#455a64, .6);
+            background: rgba($secondary, .6);
         }
         @media (min-width: 768px) {
             padding: 20px 16px;
         }
     }
     .action{
-        background: #455a64;
+        background: $secondary;
     }
 }

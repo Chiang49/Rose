@@ -23,6 +23,10 @@ import 'swiper/swiper.scss';
 import 'swiper/components/effect-fade/effect-fade.scss';
 import 'swiper/components/pagination/pagination.min.css';
 import 'swiper/components/navigation/navigation.min.css';
+// Loading
+import Loading from './components/Loading.vue';
+// 千分號
+import toCurrency from './assets/javaScript/toCurrency';
 
 import App from './App.vue';
 import router from './router';
@@ -45,6 +49,10 @@ const app = createApp(App);
 app.use(VueAxios, axios);
 // Sweet Alert 2
 app.use(VueSweetalert2);
+// Loading
+app.component('Loading', Loading);
+// 千分號
+app.config.globalProperties.toCurrency = toCurrency;
 // VeeValidate
 app.component('Form', Form);
 app.component('Field', Field);

@@ -1,4 +1,5 @@
 <template>
+  <Loading :loading="is_loading" />
   <Header
         :photoUrl="headerPhoto.url"
   ></Header>
@@ -72,6 +73,7 @@ export default {
   },
   data() {
     return {
+      is_loading: false,
       headerPhoto: {
         url: 'https://images.unsplash.com/photo-1591148782739-5bc858f02748?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1582&q=80',
       },
@@ -82,6 +84,7 @@ export default {
   methods: {
     // 取得購物車資料
     getCartsData() {
+      this.is_loading = true;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       this.$http
         .get(api)
@@ -90,6 +93,7 @@ export default {
             this.cartInformation = res.data.data;
             this.cartProducts = res.data.data.carts;
           }
+          this.is_loading = false;
         })
         .catch((err) => {
           console.log(err);
@@ -97,6 +101,7 @@ export default {
     },
     // 清空購物車
     deleteCartAll() {
+      this.is_loading = true;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/carts`;
       this.$http.delete(api).then((res) => {
         if (res.data.success) {
@@ -113,6 +118,7 @@ export default {
             title: res.data.message,
           });
         }
+        this.is_loading = false;
       }).catch((err) => {
         console.log(err);
       });

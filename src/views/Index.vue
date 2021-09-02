@@ -2,7 +2,7 @@
   <IndexHeader></IndexHeader>
   <!-- 介紹文 -->
   <div class="container mb-10">
-    <Divider></Divider>
+    <Divider :title="dividerTitle.section1"></Divider>
     <section class="hotProduct">
       <HotProductCard></HotProductCard>
     </section>
@@ -11,7 +11,7 @@
   <Activity></Activity>
   <!-- 設計服務 -->
   <div class="container mb-10">
-    <Divider></Divider>
+    <Divider :title="dividerTitle.section2"></Divider>
     <section>
       <ul class="service">
         <ServiceCard></ServiceCard>
@@ -38,6 +38,14 @@ export default {
     Activity,
     ServiceCard,
     Subscription,
+  },
+  data() {
+    return {
+      dividerTitle: {
+        section1: 'Hot',
+        section2: 'Product',
+      },
+    };
   },
 };
 </script>

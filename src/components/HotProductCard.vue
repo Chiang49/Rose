@@ -4,7 +4,7 @@
       <div class="col-md-5 order-2 order-md-1">
         <div>
           <h3 class="hotProductCard-title">玫瑰盒</h3>
-          <p class="hotProductCard-price">NT 1250</p>
+          <p class="hotProductCard-price">NT {{ toCurrency(1250) }}</p>
           <p class="hotProductCard-sell">目前已銷售 1000 盒</p>
         </div>
       </div>

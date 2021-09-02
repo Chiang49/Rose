@@ -19,7 +19,7 @@
           >
               此款為客制，下單後 2 個工作天會與您聯絡!
           </p>
-          <p>總價：NT {{ inCartProduct.final_total }}</p>
+          <p>總價：NT {{ toCurrency(inCartProduct.final_total) }}</p>
       </div>
     </div>
     <div class="cartCard-close">

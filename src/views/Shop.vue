@@ -1,4 +1,5 @@
 <template>
+  <Loading :loading="is_loading"/>
   <Header
         :photoUrl="headerPhoto.url"
   ></Header>
@@ -60,6 +61,7 @@ export default {
   },
   data() {
     return {
+      is_loading: false,
       headerPhoto: {
         url: 'https://images.unsplash.com/photo-1612335128392-1d77c4aab603?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80',
       },
@@ -73,6 +75,7 @@ export default {
   methods: {
     // 取得所有商品
     getAllProducts() {
+      this.is_loading = true;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
       this.$http.get(api).then((res) => {
         if (res.data.success) {
@@ -85,6 +88,7 @@ export default {
             title: '全部商品資料取得失敗，請重新載入',
           });
         }
+        this.is_loading = false;
       }).catch((err) => {
         console.log(err);
       });
