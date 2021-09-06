@@ -7,14 +7,14 @@
           type="email"
           id="subscriptionEmail"
           class="form-control"
-          name="Email"
+          name="email"
           placeholder="輸入信箱取得活動訊息"
           v-model="userEmail"
           rules="email"
-          :class="{ 'is-invalid': errors['Email'] }"
+          :class="{ 'is-invalid': errors['email'] }"
         ></Field>
         <button type="submit" class="input-group-text">送出</button>
-        <ErrorMessage name="Email" class="invalid-feedback"></ErrorMessage>
+        <ErrorMessage name="email" class="invalid-feedback"></ErrorMessage>
       </Form>
     </div>
   </section>
@@ -30,11 +30,19 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.subscriptionEmails.push(this.userEmail);
-      this.userEmail = '';
-      this.$swal.fire({
-        title: '感謝您的訂閱',
-      });
+      if (this.userEmail === '') {
+        this.$swal.fire({
+          icon: 'error',
+          title: '您並未填寫 Email 喔',
+        });
+      } else {
+        this.subscriptionEmails.push(this.userEmail);
+        this.$swal.fire({
+          icon: 'success',
+          title: '感謝您的訂閱',
+        });
+        this.userEmail = '';
+      }
     },
   },
 };
