@@ -44,7 +44,6 @@
       <section class="noteItem">
         <div class="row align-items-center">
           <div class="col-md-6">
-            <h3>注意事項：</h3>
             <ul>
               <li>圖片僅供參考：實際商品會因花的種類、顏色、生長狀態、搭配略有不同。</li>
               <li>為了增長花的壽命與最好狀態，請購買者詳讀"照顧守則"。</li>
@@ -61,8 +60,7 @@
         <swiper class="mySwiper"
                 :slides-per-view="swiper.slidesPerView"
                 :space-between="swiper.spaceBetween"
-                :loop="true"
-                :navigation="true"
+                :navigation="swiper.navigation"
         >
           <swiper-slide v-for="item in likeProducts" :key="item.id">
             <ProductCard :product="item"></ProductCard>
@@ -100,6 +98,7 @@ export default {
       swiper: {
         slidesPerView: 0,
         spaceBetween: 0,
+        navigation: true,
       },
       dividerTitle: {
         section1: 'Notice',
@@ -155,7 +154,7 @@ export default {
         console.log(err);
       });
     },
-    // 即時更新 Nav 的 cart 上數量
+    // 即時更新小購物車上數量
     renderCartNum() {
       bus.emit('renderNavCartNum');
     },
@@ -169,7 +168,7 @@ export default {
         } else {
           this.$swal.fire({
             icon: 'error',
-            title: '相似商品讀取失敗',
+            title: '相似商品讀取失敗，請重新載入',
           });
         }
       }).catch((err) => {
@@ -182,6 +181,7 @@ export default {
         (item) => item.category === this.product.category
                   && item.id !== this.product.id,
       );
+      this.setSwiperSize();
     },
     // swiper 顯示數量隨著視窗寬度作調整
     setSwiperSize() {
@@ -193,6 +193,9 @@ export default {
       } else if (window.innerWidth >= 992) {
         this.swiper.slidesPerView = 4;
         this.swiper.spaceBetween = 30;
+      }
+      if (this.likeProducts.length <= this.swiper.slidesPerView) {
+        this.swiper.navigation = false;
       }
     },
   },
@@ -214,9 +217,6 @@ export default {
   created() {
     this.productId = this.$route.params.id;
     this.getProductDetail(this.productId);
-  },
-  mounted() {
-    this.setSwiperSize();
   },
 };
 </script>

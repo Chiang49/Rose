@@ -47,21 +47,23 @@
         font-size: 1.5rem;
         margin-bottom: 16px;
     }
-    &:hover{
-        &::before{
-            content: '';
-            -webkit-filter: blur(10px);
-            filter: blur(10px);
-        }
-        img{
-            -webkit-filter: blur(10px);
-            filter: blur(10px);
-        }
-        .hotProductCard-rank{
-            display: none;
-        }
-        .hotProductCard-content{
-            display: block;
+    @media (min-width: 992px) {
+        &:hover{
+            &::before{
+                content: '';
+                -webkit-filter: blur(10px);
+                filter: blur(10px);
+            }
+            img{
+                -webkit-filter: blur(10px);
+                filter: blur(10px);
+            }
+            .hotProductCard-rank{
+                display: none;
+            }
+            .hotProductCard-content{
+                display: block;
+            }
         }
     }
 }

@@ -6,7 +6,7 @@
     <Divider :title="dividerTitle.section1"></Divider>
     <section class="hotProduct">
       <div class="row">
-        <div class="col-md-4" v-for="(item, key) in rankTop" :key="key">
+        <div class="col-md-4 mb-3 mb-md-0" v-for="(item, key) in rankTop" :key="key">
           <HotProductCard :hotProduct="item" :rank="key"></HotProductCard>
         </div>
       </div>
@@ -79,15 +79,25 @@ export default {
     // 隨機篩選前 3 名
     getRankTop() {
       for (let i = 0; this.rankTop.length < 3; i += 1) {
+        const obj = {
+          product: {},
+          sales: 0,
+        };
         const rnd = Math.floor(Math.random() * this.allProducts.length);
         this.rankTop.forEach((item, key) => {
-          if (item.id === this.allProducts[rnd].id) {
+          if (item.product.id === this.allProducts[rnd].id) {
             this.rankTop.splice(key, 1);
             i -= 1;
           }
         });
-        this.rankTop.push(this.allProducts[rnd]);
+        obj.product = this.allProducts[rnd];
+        obj.sales = Math.floor(Math.random() * 1000) + 500;
+        this.rankTop.push(obj);
       }
+      // 陣列照銷售量由小 -> 大排序後再反轉排序
+      this.rankTop.sort(
+        (a, b) => a.sales - b.sales,
+      ).reverse();
     },
   },
   created() {
